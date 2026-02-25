@@ -129,8 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 101459226}
   - component: {fileID: 101459225}
-  - component: {fileID: 101459228}
-  - component: {fileID: 101459227}
+  - component: {fileID: 101459231}
+  - component: {fileID: 101459230}
+  - component: {fileID: 101459229}
   m_Layer: 0
   m_Name: Ventana
   m_TagString: Untagged
@@ -212,7 +213,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &101459227
+--- !u!114 &101459229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101459224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55834eea286234719afdbe546faa311f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindowController
+  windowRenderer: {fileID: 101459225}
+  openColor: {r: 0.39, g: 0.58, b: 0.93, a: 1}
+  closedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+--- !u!114 &101459230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,10 +243,10 @@ MonoBehaviour:
   OnClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 101459224}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 101459229}
+        m_TargetAssemblyTypeName: WindowController, Assembly-CSharp
+        m_MethodName: ToggleWindow
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -239,7 +255,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!61 &101459228
+--- !u!61 &101459231
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
