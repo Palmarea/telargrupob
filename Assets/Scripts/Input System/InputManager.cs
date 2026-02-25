@@ -24,26 +24,17 @@ public class InputManager : MonoBehaviour
     }
     #endregion
 
-    private void Update()
-    {
-        Debug.Log(GetMousePosition());
-    }
-
     public Vector2 GetMousePosition() => InputHandler.GetMousePosition();
 
-    private void Click()
-    {
-        Debug.Log("Has been clicked");
-    }
 
     private void OnEnable()
     {
-        InputHandler.OnSelectPerformed += Click;
+        InputHandler.OnSelectPerformed += () => OnSelectPerformed?.Invoke();
     }
 
     private void OnDisable()
     {
-        InputHandler.OnSelectPerformed -= Click;
+        InputHandler.OnSelectPerformed -= () => OnSelectPerformed?.Invoke();
     }
 }
 
