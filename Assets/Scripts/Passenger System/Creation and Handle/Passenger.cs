@@ -1,7 +1,7 @@
 using System.Text;
 
 [System.Serializable]
-public struct Passenger
+public class Passenger
 {
     public int skinId;
     public float tolerance;

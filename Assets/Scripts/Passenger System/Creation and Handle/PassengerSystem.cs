@@ -10,7 +10,7 @@ public class PassengerSystem : MonoBehaviour
     [SerializeField] private TextAsset PassengerJSON;
     private Queue<Passenger> passengerQueue;
 
-    private void Start()
+    private void Awake()
     {
         passengerQueue = Creator.CreatePassengerQueue(PassengerJSON);
         PrintQueue();
