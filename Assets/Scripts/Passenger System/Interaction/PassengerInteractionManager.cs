@@ -25,6 +25,7 @@ public class PassengerInteractionManager : MonoBehaviour
 
     private void OnNormalTicketClicked()
     {
+        MoneyManager.Instance.AddMoney(currentPassenger.offeredPay);
         NextPassengerInteraction();
     }
 
@@ -33,6 +34,7 @@ public class PassengerInteractionManager : MonoBehaviour
         float rnd = Random.value;
         if (currentPassenger.tolerance <= rnd)
         {
+            MoneyManager.Instance.AddMoney(currentPassenger.offeredPay + 0.5f);
             ChangeMessage(currentPassenger.overpricedGoodReactionMessage);
         }
         else
@@ -64,12 +66,15 @@ public class PassengerInteractionManager : MonoBehaviour
             yield return new WaitForSeconds(InBetweenPassengersTime);
         }
 
-        currentPassenger = PassengerSystem.GetFirstPassenger();
+        if (PassengerSystem.CheckQueueState())
+        {
+            currentPassenger = PassengerSystem.GetFirstPassenger();
 
-        if (currentPassenger != null)
-            ChangeMessage(currentPassenger.initialMessage);
+            if (currentPassenger != null)
+                ChangeMessage(currentPassenger.initialMessage);
 
-        SetButtonsInteractable(true);
+            SetButtonsInteractable(true);
+        }
     }
 
     private void ChangeMessage(string newMessage)

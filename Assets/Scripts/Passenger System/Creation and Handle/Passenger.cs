@@ -5,6 +5,7 @@ public class Passenger
 {
     public int skinId;
     public float tolerance;
+    public float offeredPay;
     public int arrivalStop;
     public int destinationStop;
     public string initialMessage;
@@ -19,6 +20,7 @@ public class Passenger
         sb.AppendLine("Passenger:");
         sb.AppendLine($"  SkinId: {skinId}");
         sb.AppendLine($"  Tolerance: {tolerance}");
+        sb.AppendLine($"  Offered Pay: {offeredPay}");
         sb.AppendLine($"  ArrivalStop: {arrivalStop}");
         sb.AppendLine($"  DestinationStop: {destinationStop}");
         sb.AppendLine($"  InitialMessage: {initialMessage}");

@@ -3,6 +3,7 @@
     {
       "skinId": 0,
       "tolerance": 0.75,
+      "offeredPay":  1.00,
       "arrivalStop": 1,
       "destinationStop": 5,
       "initialMessage": "Hola, ¿me llevas hasta la estación central?",
@@ -13,6 +14,7 @@
     {
       "skinId": 1,
       "tolerance": 0.40,
+      "offeredPay":  2.00,
       "arrivalStop": 2,
       "destinationStop": 6,
       "initialMessage": "Necesito llegar rápido al mercado.",
@@ -23,6 +25,7 @@
     {
       "skinId": 2,
       "tolerance": 0.90,
+      "offeredPay":  3.00,
       "arrivalStop": 3,
       "destinationStop": 7,
       "initialMessage": "Buenas, voy al parque del norte.",
@@ -33,6 +36,7 @@
     {
       "skinId": 3,
       "tolerance": 0.20,
+      "offeredPay":  4.00,
       "arrivalStop": 4,
       "destinationStop": 8,
       "initialMessage": "Llévame al hospital, por favor.",
@@ -43,6 +47,7 @@
     {
       "skinId": 4,
       "tolerance": 0.60,
+      "offeredPay":  5.00,
       "arrivalStop": 5,
       "destinationStop": 9,
       "initialMessage": "Voy a la universidad, ¿puedes llevarme?",

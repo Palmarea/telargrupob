@@ -27,6 +27,8 @@ public class PassengerSystem : MonoBehaviour
 
     public void DequeueFirstPassenger() => passengerQueue.Dequeue();
 
+    public bool CheckQueueState() => passengerQueue.Count != 0;
+
     private void PrintQueue()
     {
         foreach (Passenger passenger in passengerQueue)
