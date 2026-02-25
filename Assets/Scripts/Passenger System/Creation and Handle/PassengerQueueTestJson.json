@@ -1,0 +1,54 @@
+{
+  "passengers": [
+    {
+      "skinId": 0,
+      "tolerance": 0.75,
+      "arrivalStop": 1,
+      "destinationStop": 5,
+      "initialMessage": "Hola, ¿me llevas hasta la estación central?",
+      "overpricedGoodReactionMessage": "Bueno... es un poco caro, pero está bien.",
+      "overpricedBadReactionMessage": "¡Oye! Eso es demasiado, me estás cobrando de más.",
+      "kickOutReactionMessage": "¡¿Qué?! ¡Bájame ahora mismo!"
+    },
+    {
+      "skinId": 1,
+      "tolerance": 0.40,
+      "arrivalStop": 2,
+      "destinationStop": 6,
+      "initialMessage": "Necesito llegar rápido al mercado.",
+      "overpricedGoodReactionMessage": "No me gusta el precio, pero tengo prisa.",
+      "overpricedBadReactionMessage": "No pienso pagar eso, es un abuso.",
+      "kickOutReactionMessage": "Esto es inaceptable, me quejaré."
+    },
+    {
+      "skinId": 2,
+      "tolerance": 0.90,
+      "arrivalStop": 3,
+      "destinationStop": 7,
+      "initialMessage": "Buenas, voy al parque del norte.",
+      "overpricedGoodReactionMessage": "Está un poco alto el precio, pero no importa.",
+      "overpricedBadReactionMessage": "Vaya, eso sí que es caro...",
+      "kickOutReactionMessage": "Bueno, supongo que caminaré entonces."
+    },
+    {
+      "skinId": 3,
+      "tolerance": 0.20,
+      "arrivalStop": 4,
+      "destinationStop": 8,
+      "initialMessage": "Llévame al hospital, por favor.",
+      "overpricedGoodReactionMessage": "No debería aceptar esto...",
+      "overpricedBadReactionMessage": "¡Es un robo total!",
+      "kickOutReactionMessage": "¡Qué falta de respeto!"
+    },
+    {
+      "skinId": 4,
+      "tolerance": 0.60,
+      "arrivalStop": 5,
+      "destinationStop": 9,
+      "initialMessage": "Voy a la universidad, ¿puedes llevarme?",
+      "overpricedGoodReactionMessage": "Hmm… está bien, pagaré esta vez.",
+      "overpricedBadReactionMessage": "Eso es demasiado para mi presupuesto.",
+      "kickOutReactionMessage": "Genial… ahora llegaré tarde."
+    }
+  ]
+}
