@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class PassengerInteractionManager : MonoBehaviour
@@ -12,9 +13,13 @@ public class PassengerInteractionManager : MonoBehaviour
     [SerializeField] private Button OverpricedTicketBtn;
     [SerializeField] private Button KickOutBtn;
     [SerializeField] private TextMeshProUGUI PassengerMessage;
+    [SerializeField] private Image PassengerPortrait;
 
     [Header("Parameters")]
     [SerializeField] private float InBetweenPassengersTime = 5f;
+
+    [Header("Config")]
+    [SerializeField] private SpriteAtlas SpriteAtlas;
 
     private Passenger currentPassenger;
 
@@ -71,7 +76,10 @@ public class PassengerInteractionManager : MonoBehaviour
             currentPassenger = PassengerSystem.GetFirstPassenger();
 
             if (currentPassenger != null)
+            {
+                ChangePortrait();
                 ChangeMessage(currentPassenger.initialMessage);
+            }
 
             SetButtonsInteractable(true);
         }
@@ -80,6 +88,11 @@ public class PassengerInteractionManager : MonoBehaviour
     private void ChangeMessage(string newMessage)
     {
         PassengerMessage.text = newMessage;
+    }
+
+    private void ChangePortrait()
+    {
+        PassengerPortrait.sprite = SpriteAtlasHandling.GetSpriteFromAtlas(SpriteAtlas, currentPassenger.skinId.ToString());
     }
 
     private void SetButtonsInteractable(bool value)
