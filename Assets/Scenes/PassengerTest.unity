@@ -397,7 +397,7 @@ MonoBehaviour:
   OverpricedTicketBtn: {fileID: 480796605}
   KickOutBtn: {fileID: 1987576423}
   PassengerMessage: {fileID: 1184350497}
-  PassengerPortrait: {fileID: 0}
+  PassengerPortrait: {fileID: 234110892}
   InBetweenPassengersTime: 5
   SpriteAtlas: {fileID: 100100200, guid: 678a4403b1bfb51499d8e0d3d6eea7c1, type: 3}
 --- !u!1 &234110890
