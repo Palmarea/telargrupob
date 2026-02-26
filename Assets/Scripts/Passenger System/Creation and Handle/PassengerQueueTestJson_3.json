@@ -1,0 +1,26 @@
+{
+  "passengers": [
+    {
+      "skinId": 8,
+      "tolerance": 0.95,
+      "offeredPay": 4.00,
+      "arrivalStop": 5,
+      "destinationStop": 9,
+      "initialMessage": "Hola, voy al aeropuerto.",
+      "overpricedGoodReactionMessage": "No importa, quiero llegar cómodo.",
+      "overpricedBadReactionMessage": "Es caro, pero lo pagaré esta vez.",
+      "kickOutReactionMessage": "Vaya… qué mala experiencia."
+    },
+    {
+      "skinId": 9,
+      "tolerance": 0.15,
+      "offeredPay": 1.20,
+      "arrivalStop": 4,
+      "destinationStop": 5,
+      "initialMessage": "Solo es la siguiente parada.",
+      "overpricedGoodReactionMessage": "No debería aceptar esto…",
+      "overpricedBadReactionMessage": "¡Eso es un robo!",
+      "kickOutReactionMessage": "¡Increíble! Me bajo ahora mismo."
+    }
+  ]
+}

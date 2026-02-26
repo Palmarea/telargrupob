@@ -5,22 +5,20 @@ public class PassengerSystem : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private PassengerCreator Creator;
-
-    [Header("Parameters")]
-    [SerializeField] private TextAsset PassengerJSON;
-    private Queue<Passenger> passengerQueue;
-
-    private void Awake()
-    {
-        passengerQueue = Creator.CreatePassengerQueue(PassengerJSON);
-        PrintQueue();
-    }
+    
+    private TextAsset currenPassengerJSON;
+    private Queue<Passenger> passengerQueue = new Queue<Passenger>();
 
     public void SetNewPassengerQueue(TextAsset newPassengerJSON)
     {
-        PassengerJSON = newPassengerJSON;
-        passengerQueue.Clear();
-        passengerQueue = passengerQueue = Creator.CreatePassengerQueue(PassengerJSON);
+        currenPassengerJSON = newPassengerJSON;
+
+        Queue<Passenger> newQueue = Creator.CreatePassengerQueue(currenPassengerJSON);
+
+        foreach (Passenger passenger in newQueue)
+        {
+            passengerQueue.Enqueue(passenger);
+        }
     }
 
     public Passenger GetFirstPassenger() => passengerQueue.Peek();

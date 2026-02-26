@@ -1,0 +1,37 @@
+{
+  "passengers": [
+    {
+      "skinId": 5,
+      "tolerance": 0.85,
+      "offeredPay": 1.50,
+      "arrivalStop": 2,
+      "destinationStop": 4,
+      "initialMessage": "Buenas, solo voy unas cuadras más adelante.",
+      "overpricedGoodReactionMessage": "Bueno, supongo que no es tan grave.",
+      "overpricedBadReactionMessage": "Eso es demasiado para una distancia tan corta.",
+      "kickOutReactionMessage": "Qué mal servicio..."
+    },
+    {
+      "skinId": 6,
+      "tolerance": 0.30,
+      "offeredPay": 3.25,
+      "arrivalStop": 1,
+      "destinationStop": 8,
+      "initialMessage": "Necesito llegar al centro financiero.",
+      "overpricedGoodReactionMessage": "No me gusta, pero lo pagaré.",
+      "overpricedBadReactionMessage": "Estás abusando del precio.",
+      "kickOutReactionMessage": "Esto es ridículo, me bajaré."
+    },
+    {
+      "skinId": 7,
+      "tolerance": 0.55,
+      "offeredPay": 2.75,
+      "arrivalStop": 3,
+      "destinationStop": 6,
+      "initialMessage": "Voy a casa después del trabajo.",
+      "overpricedGoodReactionMessage": "Está un poco alto… pero está bien.",
+      "overpricedBadReactionMessage": "No esperaba que fuera tan caro.",
+      "kickOutReactionMessage": "Genial… ahora tendré que caminar."
+    }
+  ]
+}

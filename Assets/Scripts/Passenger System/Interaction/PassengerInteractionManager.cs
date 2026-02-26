@@ -23,7 +23,7 @@ public class PassengerInteractionManager : MonoBehaviour
 
     private Passenger currentPassenger;
 
-    private void Start()
+    public void StartPassengerInteraction()
     {
         NextPassengerInteraction();
     }
@@ -68,6 +68,7 @@ public class PassengerInteractionManager : MonoBehaviour
         if (currentPassenger != null)
         {
             PassengerSystem.DequeueFirstPassenger();
+            currentPassenger = null;
             yield return new WaitForSeconds(InBetweenPassengersTime);
         }
 
@@ -77,11 +78,16 @@ public class PassengerInteractionManager : MonoBehaviour
 
             if (currentPassenger != null)
             {
+                UpdateInterationUIState(true);
                 ChangePortrait();
                 ChangeMessage(currentPassenger.initialMessage);
             }
 
             SetButtonsInteractable(true);
+        }
+        else
+        {
+            UpdateInterationUIState(false);
         }
     }
 
@@ -101,6 +107,13 @@ public class PassengerInteractionManager : MonoBehaviour
         OverpricedTicketBtn.interactable = value;
         KickOutBtn.interactable = value;
     }
+
+    public void UpdateInterationUIState(bool state)
+    {
+        CanvasUI.SetActive(state);
+    }
+
+    public bool GetInteractionState() => CanvasUI.activeSelf;
 
     private void OnEnable()
     {

@@ -363,7 +363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassengerSystem
   Creator: {fileID: 117266875}
-  PassengerJSON: {fileID: 4900000, guid: b9b3499506ca24941a6edda60a5171fc, type: 3}
 --- !u!4 &117266877
 Transform:
   m_ObjectHideFlags: 0
@@ -398,7 +397,7 @@ MonoBehaviour:
   KickOutBtn: {fileID: 1987576423}
   PassengerMessage: {fileID: 1184350497}
   PassengerPortrait: {fileID: 234110892}
-  InBetweenPassengersTime: 5
+  InBetweenPassengersTime: 2
   SpriteAtlas: {fileID: 100100200, guid: 678a4403b1bfb51499d8e0d3d6eea7c1, type: 3}
 --- !u!1 &234110890
 GameObject:
@@ -808,6 +807,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316128008}
   m_CullTransparentMesh: 1
+--- !u!1 &480692814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480692816}
+  - component: {fileID: 480692815}
+  m_Layer: 0
+  m_Name: BusStopSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &480692815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480692814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3798dc85b862e4391d24143ffdb604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BusStopManager
+  PassengerSystem: {fileID: 117266876}
+  PassengerInteractionManager: {fileID: 117266878}
+  InBetweenStopsTime: 30
+  PassengerJSONList:
+  - {fileID: 4900000, guid: b9b3499506ca24941a6edda60a5171fc, type: 3}
+  - {fileID: 4900000, guid: af3ad14ec5b5ffa49bdfaee1cc10dbfb, type: 3}
+  - {fileID: 4900000, guid: c2d0a49416386a248a0058c07e4d1347, type: 3}
+--- !u!4 &480692816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480692814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480796603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,7 +1954,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 480692816}
   - {fileID: 117266877}
+  - {fileID: 287975250}
   - {fileID: 780748875}
   - {fileID: 113194862}
-  - {fileID: 287975250}
