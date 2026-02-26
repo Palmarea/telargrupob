@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BusStopManager : MonoBehaviour
 {
@@ -13,9 +15,17 @@ public class BusStopManager : MonoBehaviour
     [Header("Resources")]
     [SerializeField] private List<TextAsset> PassengerJSONList;
 
+    // QUITAR LUEGO DE PRUEBAS AAAAAAAAAAAAAAAAAAAAA
+    [Header("Debug")]
+    public TextMeshProUGUI StopTimer;
+    public GameObject StopPrefab;
+    public Transform DebugOrigin;
+    // ---------------------------------------------------------------
+
     private Queue<TextAsset> PassengerJSONQueue = new Queue<TextAsset>();
     private bool finished = false;
     private float timer = 0;
+    private float stopTimer = 0;
 
     private void Awake()
     {
@@ -26,10 +36,14 @@ public class BusStopManager : MonoBehaviour
 
         PassengerSystem.SetNewPassengerQueue(PassengerJSONQueue.Dequeue());
         PassengerInteractionManager.StartPassengerInteraction();
+        ArrivedToStop();
     }
 
     private void Update()
     {
+        stopTimer += Time.deltaTime;
+        StopTimer.text = stopTimer.ToString();
+        
         if (finished) return;
 
         // Si la cola de pasajeros esta vacia, desactivar UI
@@ -57,6 +71,7 @@ public class BusStopManager : MonoBehaviour
             {
                 Debug.Log("NEW PASSENGERS ADDED");
                 PassengerSystem.SetNewPassengerQueue(PassengerJSONQueue.Dequeue());
+                ArrivedToStop();
                 
                 if (!PassengerInteractionManager.GetInteractionState())
                 {
@@ -68,5 +83,16 @@ public class BusStopManager : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
+    }
+
+    private void ArrivedToStop()
+    {
+        Vector3 spawnPos = DebugOrigin.position + (Vector3)(Vector2.right * (PassengerJSONList.Count - PassengerJSONQueue.Count));
+        var go = Instantiate(StopPrefab, spawnPos, Quaternion.identity, DebugOrigin.parent);
+        go.GetComponent<Image>().material.color = new Color(
+            Random.Range(0f, 1f),
+            Random.Range(0f, 1f),
+            Random.Range(0f, 1f)
+        );
     }
 }
