@@ -838,7 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BusStopManager
   PassengerSystem: {fileID: 117266876}
   PassengerInteractionManager: {fileID: 117266878}
-  InBetweenStopsTime: 30
+  InBetweenStopsTime: 15
   PassengerJSONList:
   - {fileID: 4900000, guid: b9b3499506ca24941a6edda60a5171fc, type: 3}
   - {fileID: 4900000, guid: af3ad14ec5b5ffa49bdfaee1cc10dbfb, type: 3}
