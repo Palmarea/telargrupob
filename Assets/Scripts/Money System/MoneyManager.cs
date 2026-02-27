@@ -1,16 +1,23 @@
 using System;
+using FMODUnity;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance;
     private float CurrentMoney;
+    
 
     [Header("Paramenters")]
     [SerializeField] private float InitialMoney = 0;
 
     // Events
     public event Action<float> OnMoneyUpdated;
+
+    [SerializeField] private EventReference moneyCollectedSound;
 
     #region Singleton
     private void Awake()
@@ -25,6 +32,7 @@ public class MoneyManager : MonoBehaviour
             CurrentMoney = InitialMoney;
             OnMoneyUpdated?.Invoke(CurrentMoney);
         }
+        
     }
     #endregion
 
@@ -32,6 +40,7 @@ public class MoneyManager : MonoBehaviour
     {
         CurrentMoney += amount;
         OnMoneyUpdated?.Invoke(CurrentMoney);
+        SoundManager.instance.PlayOneshot(moneyCollectedSound,this.transform.position);
     }
 
     public void ReduceMoney(float amount)
@@ -43,4 +52,5 @@ public class MoneyManager : MonoBehaviour
     public float GetCurrentMoney() => CurrentMoney;
 
     public float GetRoundedMoney() => Mathf.Round(CurrentMoney * 100f) / 100f;
+
 }
