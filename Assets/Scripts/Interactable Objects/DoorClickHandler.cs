@@ -15,43 +15,17 @@ public class DoorClickHandler : MonoBehaviour
         PassengerCamera.enabled = false;
     }
 
-    //void Update()
-    //{
-    //    if (Mouse.current.leftButton.wasPressedThisFrame)
-    //    {
-    //        if (isInPassengerView)
-    //        {
-    //            PassengerCamera.enabled = false;
-    //            MainCamera.enabled = true;
-    //            CameraController.enabled = true;
-    //            isInPassengerView = false;
-    //        }
-    //        else
-    //        {
-    //            Vector2 mousePos = Mouse.current.position.ReadValue();
-    //            Vector2 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
-    //            RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
-
-    //            if (hit.collider != null && hit.collider.gameObject.name == "Puerta_Pasajeros")
-    //            {
-    //                CameraController.enabled = false;
-    //                MainCamera.enabled = false;
-    //                PassengerCamera.enabled = true;
-    //                isInPassengerView = true;
-    //            }
-    //        }
-    //    }
-    //}
-
     public void ToggleCameraChange()
     {
         isInPassengerView = !isInPassengerView;
         
         MainCamera.enabled = !isInPassengerView;
         MainCamera.depth = !isInPassengerView ? 1 : -1;
+        MainCamera.tag = !isInPassengerView ? "MainCamera" : "Untagged";
         
         PassengerCamera.enabled = isInPassengerView;
         PassengerCamera.depth = isInPassengerView ? 1 : -1;
+        PassengerCamera.tag = isInPassengerView ? "MainCamera" : "Untagged";
 
         CameraController.enabled = !isInPassengerView;
     }
