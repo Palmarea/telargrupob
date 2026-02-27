@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
 
     public Vector2 GetMousePosition() => InputHandler.GetMousePosition();
 
+    public Vector2 GetRawMousePosition() => InputHandler.GetRawMousePosition();
 
     private void OnEnable()
     {

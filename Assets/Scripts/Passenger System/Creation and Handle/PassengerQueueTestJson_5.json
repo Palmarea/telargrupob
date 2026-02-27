@@ -1,0 +1,59 @@
+{
+  "passengers": [
+    {
+      "skinId": 14,
+      "tolerance": 0.35,
+      "offeredPay": 2.60,
+      "arrivalStop": 5,
+      "destinationStop": 8,
+      "initialMessage": "Voy al hospital central.",
+      "overpricedGoodReactionMessage": "Está bien…",
+      "overpricedBadReactionMessage": "Es demasiado caro.",
+      "kickOutReactionMessage": "No puedo creerlo."
+    },
+    {
+      "skinId": 15,
+      "tolerance": 0.60,
+      "offeredPay": 3.00,
+      "arrivalStop": 6,
+      "destinationStop": 9,
+      "initialMessage": "Llévame a la universidad.",
+      "overpricedGoodReactionMessage": "Está bien, pagaré.",
+      "overpricedBadReactionMessage": "Eso es excesivo.",
+      "kickOutReactionMessage": "Llegaré tarde por tu culpa."
+    },
+    {
+      "skinId": 16,
+      "tolerance": 0.80,
+      "offeredPay": 5.00,
+      "arrivalStop": 1,
+      "destinationStop": 10,
+      "initialMessage": "Voy directo al aeropuerto.",
+      "overpricedGoodReactionMessage": "No hay problema.",
+      "overpricedBadReactionMessage": "Es caro, pero acepto.",
+      "kickOutReactionMessage": "Qué mal servicio."
+    },
+    {
+      "skinId": 17,
+      "tolerance": 0.20,
+      "offeredPay": 1.50,
+      "arrivalStop": 7,
+      "destinationStop": 8,
+      "initialMessage": "Solo una parada más.",
+      "overpricedGoodReactionMessage": "Hmm…",
+      "overpricedBadReactionMessage": "¡Eso es un robo!",
+      "kickOutReactionMessage": "Inaceptable."
+    },
+    {
+      "skinId": 18,
+      "tolerance": 0.55,
+      "offeredPay": 2.90,
+      "arrivalStop": 2,
+      "destinationStop": 6,
+      "initialMessage": "Voy al centro.",
+      "overpricedGoodReactionMessage": "Está bien.",
+      "overpricedBadReactionMessage": "Muy caro.",
+      "kickOutReactionMessage": "Me bajaré aquí."
+    }
+  ]
+}

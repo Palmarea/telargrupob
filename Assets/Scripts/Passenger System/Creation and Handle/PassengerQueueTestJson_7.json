@@ -1,0 +1,48 @@
+{
+  "passengers": [
+    {
+      "skinId": 23,
+      "tolerance": 0.65,
+      "offeredPay": 3.10,
+      "arrivalStop": 2,
+      "destinationStop": 8,
+      "initialMessage": "Voy al estadio.",
+      "overpricedGoodReactionMessage": "Está bien.",
+      "overpricedBadReactionMessage": "Eso es mucho.",
+      "kickOutReactionMessage": "Qué mala suerte."
+    },
+    {
+      "skinId": 24,
+      "tolerance": 0.30,
+      "offeredPay": 2.00,
+      "arrivalStop": 5,
+      "destinationStop": 7,
+      "initialMessage": "Llévame al centro médico.",
+      "overpricedGoodReactionMessage": "Supongo que sí.",
+      "overpricedBadReactionMessage": "No pienso pagar eso.",
+      "kickOutReactionMessage": "Esto es injusto."
+    },
+    {
+      "skinId": 25,
+      "tolerance": 0.85,
+      "offeredPay": 4.80,
+      "arrivalStop": 3,
+      "destinationStop": 10,
+      "initialMessage": "Voy al aeropuerto internacional.",
+      "overpricedGoodReactionMessage": "Sin problema.",
+      "overpricedBadReactionMessage": "Está caro…",
+      "kickOutReactionMessage": "Bueno, buscaré otro transporte."
+    },
+    {
+      "skinId": 26,
+      "tolerance": 0.40,
+      "offeredPay": 1.90,
+      "arrivalStop": 6,
+      "destinationStop": 7,
+      "initialMessage": "Solo una parada más adelante.",
+      "overpricedGoodReactionMessage": "Está bien…",
+      "overpricedBadReactionMessage": "Eso es demasiado.",
+      "kickOutReactionMessage": "Increíble."
+    }
+  ]
+}

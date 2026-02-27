@@ -6,6 +6,7 @@ public class MoneyPresenter : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private TextMeshProUGUI TotalMoneyText;
+    [SerializeField] private TextMeshProUGUI TotalMoneyTextDebug;
     
     private bool suscribed = false;
 
@@ -25,7 +26,9 @@ public class MoneyPresenter : MonoBehaviour
 
     private void ChangeText(string text)
     {
+        text = $"Money: {text}";
         TotalMoneyText.text = text;
+        TotalMoneyTextDebug.text = text;
     }
 
     private void OnEnable()

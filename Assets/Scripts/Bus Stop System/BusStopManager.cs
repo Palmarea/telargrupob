@@ -17,6 +17,7 @@ public class BusStopManager : MonoBehaviour
 
     // QUITAR LUEGO DE PRUEBAS AAAAAAAAAAAAAAAAAAAAA
     [Header("Debug")]
+    public bool ActivateEndless = false;
     public TextMeshProUGUI StopTimer;
     public GameObject StopPrefab;
     public Transform DebugOrigin;
@@ -42,7 +43,7 @@ public class BusStopManager : MonoBehaviour
     private void Update()
     {
         stopTimer += Time.deltaTime;
-        StopTimer.text = stopTimer.ToString();
+        StopTimer.text = $"Time: {stopTimer.ToString()}";
         
         if (finished) return;
 
@@ -52,7 +53,17 @@ public class BusStopManager : MonoBehaviour
             PassengerInteractionManager.UpdateInterationUIState(false);
 
             // Si tambien esta vacias la cola de jsons, desactivar funcionalidad.
-            if (PassengerJSONQueue.Count == 0) finished = true;
+            if (PassengerJSONQueue.Count == 0)
+            {
+                if (ActivateEndless) // DEBUG
+                {
+                    RefillJSONQueue();
+                }
+                else
+                {
+                    finished = true;
+                }
+            }
         }
         else
         {
@@ -85,14 +96,44 @@ public class BusStopManager : MonoBehaviour
         }
     }
 
+    // DEBUG
+    private void RefillJSONQueue()
+    {
+        foreach (TextAsset asset in PassengerJSONList)
+        {
+            PassengerJSONQueue.Enqueue(asset);
+        }
+    }
+
+    private int stopIndex = 0;
+
     private void ArrivedToStop()
     {
-        Vector3 spawnPos = DebugOrigin.position + (Vector3)(Vector2.right * (PassengerJSONList.Count - PassengerJSONQueue.Count));
-        var go = Instantiate(StopPrefab, spawnPos, Quaternion.identity, DebugOrigin.parent);
-        go.GetComponent<Image>().material.color = new Color(
+        var go = Instantiate(StopPrefab, DebugOrigin.parent);
+
+        RectTransform originRect = DebugOrigin.GetComponent<RectTransform>();
+        RectTransform rect = go.GetComponent<RectTransform>();
+
+        // Copiamos configuración base
+        rect.anchorMin = originRect.anchorMin;
+        rect.anchorMax = originRect.anchorMax;
+        rect.pivot = originRect.pivot;
+        rect.localScale = Vector3.one;
+
+        // Calculamos desplazamiento usando el ancho real del prefab
+        float width = rect.rect.width;
+
+        rect.anchoredPosition = originRect.anchoredPosition + new Vector2(width * stopIndex, 0);
+
+        stopIndex++;
+
+        // Color random
+        Image img = go.GetComponent<Image>();
+        img.color = new Color(
             Random.Range(0f, 1f),
             Random.Range(0f, 1f),
-            Random.Range(0f, 1f)
+            Random.Range(0f, 1f),
+            1f
         );
     }
 }

@@ -21,6 +21,11 @@ public class PlayerInput : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
 
+    public Vector2 GetRawMousePosition()
+    {
+        return Mouse.current.position.ReadValue();
+    }
+
     private void InitializeInputnEvents()
     {
         if (initialized) return;
