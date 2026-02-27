@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{cf669870-3460-4a26-801a-118c00bb20cc}">
+		<property name="name">
+			<value>WindowLoose</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c208c278-c18f-4ff2-b78e-92ffc8568f81}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{39d44e32-af49-42ec-b71b-e609f210a8fb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{39d44e32-af49-42ec-b71b-e609f210a8fb}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
