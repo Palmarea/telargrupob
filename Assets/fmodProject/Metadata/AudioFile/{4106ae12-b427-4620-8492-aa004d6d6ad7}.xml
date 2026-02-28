@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{4106ae12-b427-4620-8492-aa004d6d6ad7}">
+		<property name="assetPath">
+			<value>windowRattle.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>316.12799999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{23f2b66a-7db7-4f9c-aadd-783ae89872ec}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{e51ec483-6ea1-4ad4-9e99-d9bed6fdaaac}">
+		<property name="name">
+			<value>Ambient</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{f44855ce-bae2-4605-b7d5-541ad131c9b5}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{94a8bfc8-0eef-4a3d-9674-1a15f095e4de}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{c3016ce3-fde5-4e05-94dc-90259aed1c76}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{f44855ce-bae2-4605-b7d5-541ad131c9b5}">
+		<relationship name="effects">
+			<destination>{ddab7ebe-d208-4303-aa15-4a84537a0f72}</destination>
+			<destination>{467013fd-e493-4fe6-aeda-3b2e077dcc35}</destination>
+			<destination>{43ed920a-9612-4f43-bf8c-d471396711ae}</destination>
+			<destination>{e799c229-9019-42f3-a436-544219db3e91}</destination>
+			<destination>{0eea6a92-6eaa-46ef-a2c4-aa62803229a8}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{94a8bfc8-0eef-4a3d-9674-1a15f095e4de}" />
+	<object class="MixerBusFader" id="{ddab7ebe-d208-4303-aa15-4a84537a0f72}" />
+	<object class="DistortionEffect" id="{467013fd-e493-4fe6-aeda-3b2e077dcc35}">
+		<property name="level">
+			<value>0.119999997</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{43ed920a-9612-4f43-bf8c-d471396711ae}" />
+	<object class="ChorusEffect" id="{e799c229-9019-42f3-a436-544219db3e91}">
+		<property name="rate">
+			<value>0</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{0eea6a92-6eaa-46ef-a2c4-aa62803229a8}">
+		<property name="wetDryEnabled">
+			<value>true</value>
+		</property>
+		<property name="frequencyA">
+			<value>616.126892</value>
+		</property>
+		<property name="qualityA">
+			<value>0.528509259</value>
+		</property>
+		<relationship name="automators">
+			<destination>{8aa37ed2-036e-4533-a48e-637c30193823}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{8aa37ed2-036e-4533-a48e-637c30193823}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>wetMix</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{59c35edf-578e-4b34-84eb-203833b2f82f}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{59c35edf-578e-4b34-84eb-203833b2f82f}">
+		<relationship name="parameter">
+			<destination>{c38b33d0-2412-4a08-9ca2-a27b2a3930fb}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{efc98560-c1ca-409b-9c34-dc50e89fe497}</destination>
+			<destination>{7987f97e-b613-4ad7-8951-8019b9144467}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{efc98560-c1ca-409b-9c34-dc50e89fe497}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>100</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{7987f97e-b613-4ad7-8951-8019b9144467}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

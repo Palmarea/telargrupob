@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{cc48602c-d860-459a-98a2-2d83df2f2cbe}">
+		<property name="assetPath">
+			<value>SFX/Claxon.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.2886394557823131</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{23f2b66a-7db7-4f9c-aadd-783ae89872ec}</destination>
+		</relationship>
+	</object>
+</objects>

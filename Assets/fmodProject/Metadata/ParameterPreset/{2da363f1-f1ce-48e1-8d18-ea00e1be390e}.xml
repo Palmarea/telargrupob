@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{2da363f1-f1ce-48e1-8d18-ea00e1be390e}">
+		<property name="name">
+			<value>Ominosidad</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c208c278-c18f-4ff2-b78e-92ffc8568f81}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2eb78d9a-cabc-4b15-bcdd-dc427b9219b9}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2eb78d9a-cabc-4b15-bcdd-dc427b9219b9}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

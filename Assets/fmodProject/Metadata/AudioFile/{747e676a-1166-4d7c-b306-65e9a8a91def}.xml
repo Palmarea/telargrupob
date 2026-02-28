@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{747e676a-1166-4d7c-b306-65e9a8a91def}">
+		<property name="assetPath">
+			<value>AmbientNoise/Avenida1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>94.610589569160993</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{23f2b66a-7db7-4f9c-aadd-783ae89872ec}</destination>
+		</relationship>
+	</object>
+</objects>
