@@ -1,9 +1,6 @@
 using System;
 using FMODUnity;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MoneyManager : MonoBehaviour
 {
