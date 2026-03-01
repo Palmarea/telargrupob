@@ -45,6 +45,7 @@ public class ExpositionSystem: MonoBehaviour
 
         ExpositionPanel.SetActive(true);
         isShowing = true;
+        TimeManager.Instance.ToggleTimeStop();
     }
 
     public void Hide()
@@ -52,6 +53,7 @@ public class ExpositionSystem: MonoBehaviour
         ExpositionPanel.SetActive(false);
         isShowing = false;
         ClickDetector.Instance.UpdateOcuppiedState(false);
+        TimeManager.Instance.ToggleTimeStop();
     }
 
     private void OnEnable()

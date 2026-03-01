@@ -42,6 +42,8 @@ public class BusStopManager : MonoBehaviour
 
     private void Update()
     {
+        if (TimeManager.Instance.TimeStop) return;
+        
         stopTimer += Time.deltaTime;
         StopTimer.text = $"Time: {stopTimer.ToString()}";
         
