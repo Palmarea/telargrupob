@@ -65,13 +65,13 @@ public class CameraController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (ClickDetector.Instance != null)
-            ClickDetector.Instance.OnOcuppiedStateChanged += CheckForOccupation;
+        if (MouseController.Instance != null)
+            MouseController.Instance.OnOcuppiedStateChanged += CheckForOccupation;
     }
 
     private void OnDisable()
     {
-        if (ClickDetector.Instance != null)
-            ClickDetector.Instance.OnOcuppiedStateChanged -= CheckForOccupation;
+        if (MouseController.Instance != null)
+            MouseController.Instance.OnOcuppiedStateChanged -= CheckForOccupation;
     }
 }

@@ -1579,6 +1579,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 738408920}
+        m_TargetAssemblyTypeName: WindowController, Assembly-CSharp
+        m_MethodName: OnHoverAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnOffHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 738408920}
+        m_TargetAssemblyTypeName: WindowController, Assembly-CSharp
+        m_MethodName: OffHoverAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!60 &738408922
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1717,7 +1747,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5c8493447e827de45b96359a034fe141, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2043,7 +2073,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5c8493447e827de45b96359a034fe141, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2104,6 +2134,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
   OnClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHover:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOffHover:
     m_PersistentCalls:
       m_Calls: []
 --- !u!60 &1038252824
@@ -2384,7 +2420,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5c8493447e827de45b96359a034fe141, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2536,6 +2572,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHover:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOffHover:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1136020290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,8 +2668,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDetector
   ClickableLayerMask:
-    serializedVersion: 2
     m_Bits: 64
+  ocuppied: 0
+  suscribed: 0
+  clickBlocked: 0
 --- !u!114 &1264320826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3286,7 +3330,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5c8493447e827de45b96359a034fe141, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3463,6 +3507,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHover:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOffHover:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1450901546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5023,6 +5073,7 @@ GameObject:
   - component: {fileID: 2110188853}
   - component: {fileID: 2110188855}
   - component: {fileID: 2110188856}
+  - component: {fileID: 2110188858}
   - component: {fileID: 2110188857}
   m_Layer: 0
   m_Name: BusCabinCamera
@@ -5173,6 +5224,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 2110188851}
+--- !u!114 &2110188858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110188851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea1b2ed777a94f4f8873d059f9ad7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseController
+  ClickableLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2131994738
 GameObject:
   m_ObjectHideFlags: 0

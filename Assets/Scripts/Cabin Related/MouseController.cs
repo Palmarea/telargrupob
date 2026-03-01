@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class ClickDetector : MonoBehaviour
+public class MouseController : MonoBehaviour
 {
-    public static ClickDetector Instance;
+    public static MouseController Instance;
 
     [Header("Configuration")]
     [SerializeField] private LayerMask ClickableLayerMask;
@@ -12,6 +12,7 @@ public class ClickDetector : MonoBehaviour
     public event Action OnSimpleClickPerformed;
     public event Action<bool> OnOcuppiedStateChanged;
 
+    private ClickableObject currentHover;
     private bool ocuppied = false;
     private bool suscribed = false;
     private bool clickBlocked = false;
@@ -34,9 +35,53 @@ public class ClickDetector : MonoBehaviour
     {
         if (!suscribed)
         {
+            InputManager.Instance.OnSelectPerformed += CheckForHitClickableObject;
             ConcentrationManager.Instance.OnConcentrationDepleted += HandleDepleted;
             ConcentrationManager.Instance.OnConcentrationRefilled += HandleRefilled;
             suscribed = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (TimeManager.Instance.TimeStop)
+        {
+            if (currentHover != null)
+            {
+                currentHover.SetHover(false);
+                currentHover = null;
+            }
+        }
+        
+        CheckHover();
+    }
+
+    private void CheckHover()
+    {
+        if (clickBlocked) return;
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            InputManager.Instance.GetMousePosition(),
+            Vector2.zero,
+            ClickableLayerMask
+        );
+
+        ClickableObject newHover = null;
+
+        if (hit.collider != null && !ocuppied)
+        {
+            newHover = hit.collider.GetComponent<ClickableObject>();
+        }
+
+        if (newHover != currentHover)
+        {
+            if (currentHover != null)
+                currentHover.SetHover(false);
+
+            currentHover = newHover;
+
+            if (currentHover != null)
+                currentHover.SetHover(true);
         }
     }
 
@@ -76,6 +121,12 @@ public class ClickDetector : MonoBehaviour
 
     private void HandleDepleted()
     {
+        if (currentHover != null)
+        {
+            currentHover.SetHover(false);
+            currentHover = null;
+        }
+
         clickBlocked = true;
         UpdateOcuppiedState(false);
     }
@@ -87,24 +138,23 @@ public class ClickDetector : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.Instance.OnSelectPerformed += CheckForHitClickableObject;
-
-        if (ConcentrationManager.Instance != null)
+        if (InputManager.Instance != null)
         {
-            ConcentrationManager.Instance.OnConcentrationDepleted += HandleDepleted;
-            ConcentrationManager.Instance.OnConcentrationRefilled += HandleRefilled;
-            suscribed = true;
+            InputManager.Instance.OnSelectPerformed += CheckForHitClickableObject;
+
+            if (ConcentrationManager.Instance != null)
+            {
+                ConcentrationManager.Instance.OnConcentrationDepleted += HandleDepleted;
+                ConcentrationManager.Instance.OnConcentrationRefilled += HandleRefilled;
+                suscribed = true;
+            }
         }
     }
 
     private void OnDisable()
     {
         InputManager.Instance.OnSelectPerformed -= CheckForHitClickableObject;
-
-        if (ConcentrationManager.Instance != null)
-        {
-            ConcentrationManager.Instance.OnConcentrationDepleted -= HandleDepleted;
-            ConcentrationManager.Instance.OnConcentrationRefilled -= HandleRefilled;
-        }
+        ConcentrationManager.Instance.OnConcentrationDepleted -= HandleDepleted;
+        ConcentrationManager.Instance.OnConcentrationRefilled -= HandleRefilled;
     }
 }

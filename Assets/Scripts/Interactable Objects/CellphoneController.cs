@@ -11,7 +11,7 @@ public class CellphoneController: MonoBehaviour
     {
         if (!suscribed)
         {
-            ClickDetector.Instance.OnSimpleClickPerformed += () => { if (isOpen) ToggleCellphone(); };
+            MouseController.Instance.OnSimpleClickPerformed += () => { if (isOpen) ToggleCellphone(); };
         }
     }
 
@@ -19,20 +19,20 @@ public class CellphoneController: MonoBehaviour
     {
         isOpen = !isOpen;
         celularPanel.SetActive(isOpen);
-        ClickDetector.Instance.UpdateOcuppiedState(isOpen);
+        MouseController.Instance.UpdateOcuppiedState(isOpen);
     }
 
     private void OnEnable()
     {
-        if (ClickDetector.Instance != null)
+        if (MouseController.Instance != null)
         {
-            ClickDetector.Instance.OnSimpleClickPerformed += () => { if (isOpen) ToggleCellphone(); };
+            MouseController.Instance.OnSimpleClickPerformed += () => { if (isOpen) ToggleCellphone(); };
             suscribed = true;
         }
     }
 
     private void OnDisable()
     {
-        ClickDetector.Instance.OnSimpleClickPerformed -= () => { if (isOpen) ToggleCellphone(); };
+        MouseController.Instance.OnSimpleClickPerformed -= () => { if (isOpen) ToggleCellphone(); };
     }
 }

@@ -16,8 +16,8 @@ public class ExpositionSystem: MonoBehaviour
     {
         if (!suscribed)
         {
-            ClickDetector.Instance.OnClickableExpositionObject += Show;
-            ClickDetector.Instance.OnSimpleClickPerformed += () => { if (isShowing) Hide(); };
+            MouseController.Instance.OnClickableExpositionObject += Show;
+            MouseController.Instance.OnSimpleClickPerformed += () => { if (isShowing) Hide(); };
         }
     }
 
@@ -52,16 +52,16 @@ public class ExpositionSystem: MonoBehaviour
     {
         ExpositionPanel.SetActive(false);
         isShowing = false;
-        ClickDetector.Instance.UpdateOcuppiedState(false);
+        MouseController.Instance.UpdateOcuppiedState(false);
         TimeManager.Instance.ToggleTimeStop();
     }
 
     private void OnEnable()
     {
-        if (ClickDetector.Instance != null)
+        if (MouseController.Instance != null)
         {
-            ClickDetector.Instance.OnClickableExpositionObject += Show;
-            ClickDetector.Instance.OnSimpleClickPerformed += () => { if (isShowing) Hide(); };
+            MouseController.Instance.OnClickableExpositionObject += Show;
+            MouseController.Instance.OnSimpleClickPerformed += () => { if (isShowing) Hide(); };
 
             suscribed = true;
         }
@@ -69,7 +69,7 @@ public class ExpositionSystem: MonoBehaviour
 
     private void OnDisable()
     {
-        ClickDetector.Instance.OnClickableExpositionObject -= Show;
-        ClickDetector.Instance.OnSimpleClickPerformed -= () => { if (isShowing) Hide(); };
+        MouseController.Instance.OnClickableExpositionObject -= Show;
+        MouseController.Instance.OnSimpleClickPerformed -= () => { if (isShowing) Hide(); };
     }
 }
