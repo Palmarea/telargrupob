@@ -1,18 +1,30 @@
-using UnityEngine;
+using FMOD.Studio;
 using FMODUnity;
+using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance {get; private set;}
-
-    public void Awake()
+    private void OnEnable()
     {
-
-        instance=this;       
+        AudioEvents.OnPlayOneShot += PlayOneShot;
+        AudioEvents.OnPlayControlled += PlayControlled;
     }
 
-    public void PlayOneshot(EventReference sound, Vector3 worldPos)
+    private void OnDisable()
     {
-        RuntimeManager.PlayOneShot(sound,worldPos);
+        AudioEvents.OnPlayOneShot -= PlayOneShot;
+        AudioEvents.OnPlayControlled -= PlayControlled;
+    }
+
+    private void PlayOneShot(FMODEventSO sound, Vector3 worldPos)
+    {
+        RuntimeManager.PlayOneShot(sound.eventReference, worldPos);
+    }
+
+    private void PlayControlled(FMODEventSO sound, System.Action<EventInstance> onCreated)
+    {
+        var instance = RuntimeManager.CreateInstance(sound.eventReference);
+        onCreated?.Invoke(instance);
+        instance.start();
     }
 }

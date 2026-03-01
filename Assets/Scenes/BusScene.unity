@@ -2591,37 +2591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellphoneController
   celularPanel: {fileID: 1421859149}
---- !u!1 &1264216018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1264216019}
-  m_Layer: 0
-  m_Name: FMOD
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1264216019
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264216018}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264320823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,7 +2600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264320824}
-  - component: {fileID: 1264320825}
+  - component: {fileID: 1264320827}
   - component: {fileID: 1264320826}
   m_Layer: 0
   m_Name: BusCabinSystems
@@ -2655,23 +2624,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1264320825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264320823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e38a069915b4656ab7fa1b5db06954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickDetector
-  ClickableLayerMask:
-    m_Bits: 64
-  ocuppied: 0
-  suscribed: 0
-  clickBlocked: 0
 --- !u!114 &1264320826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2687,6 +2639,21 @@ MonoBehaviour:
   ExpositionPanel: {fileID: 1454773388}
   ExpositionImage: {fileID: 1576080462}
   ExpositionText: {fileID: 503651471}
+--- !u!114 &1264320827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264320823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea1b2ed777a94f4f8873d059f9ad7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseController
+  ClickableLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1270100031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,13 +2836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
   InitialMoney: 0
-  moneyCollectedSound:
-    Guid:
-      Data1: 337983217
-      Data2: 1219863534
-      Data3: 206292919
-      Data4: 1173221980
-    Path: event:/Moneda
+  MoneyCollectedSound: {fileID: 0}
 --- !u!4 &1300664588
 Transform:
   m_ObjectHideFlags: 0
@@ -5073,7 +5034,6 @@ GameObject:
   - component: {fileID: 2110188853}
   - component: {fileID: 2110188855}
   - component: {fileID: 2110188856}
-  - component: {fileID: 2110188858}
   - component: {fileID: 2110188857}
   m_Layer: 0
   m_Name: BusCabinCamera
@@ -5224,21 +5184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 2110188851}
---- !u!114 &2110188858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110188851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea1b2ed777a94f4f8873d059f9ad7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MouseController
-  ClickableLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &2131994738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5352,5 +5297,4 @@ SceneRoots:
   - {fileID: 112012248}
   - {fileID: 827061190}
   - {fileID: 1530200458}
-  - {fileID: 1264216019}
   - {fileID: 1367255939}
