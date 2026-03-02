@@ -9,6 +9,9 @@ public class ConcentrationManager : MonoBehaviour
     [SerializeField] private ConcentrationController Controller;
     [SerializeField] private ConcentrationSystemPresenter Presenter;
 
+    [Header("Debug")]
+    [SerializeField] private bool DebugForcedState = false;
+
     // Events
     public event Action OnConcentrationRefilled;
     public event Action OnConcentrationDepleted;
@@ -30,6 +33,8 @@ public class ConcentrationManager : MonoBehaviour
     private void Update()
     {
         if (TimeManager.Instance.TimeStop) return;
+
+        if (DebugForcedState) return;
 
         Controller.CheckForConcentrationState();
         Presenter.UpdateConcentrationPresentation(Controller.GetConcentrationValue());

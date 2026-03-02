@@ -32,4 +32,9 @@ public class WindowController : MonoBehaviour
         if (!isOpen) return;
         windowRenderer.color = initialColor;
     }
+
+    public bool IsOpen()
+    {
+        return isOpen;
+    }
 }
