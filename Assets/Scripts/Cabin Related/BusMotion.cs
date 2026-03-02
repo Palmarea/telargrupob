@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BusMotion : MonoBehaviour
+public class BusMotion : DayDependant
 {
     [Header("Dependencies")]
     [SerializeField] private List<Transform> MotionAffectedObjects = new List<Transform>();
@@ -27,9 +27,12 @@ public class BusMotion : MonoBehaviour
         {
             t.parent = this.transform;
         }
+
+        RegisterForPreDay();
+        RegisterForBusStopPause();
     }
 
-    private void Update()
+    protected override void OnSystemUpdate()
     {
         if (TimeManager.Instance.TimeStop) return;
 

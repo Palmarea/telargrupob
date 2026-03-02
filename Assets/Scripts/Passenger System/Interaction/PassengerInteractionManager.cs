@@ -23,8 +23,14 @@ public class PassengerInteractionManager : MonoBehaviour
 
     private Passenger currentPassenger;
 
+    private void Awake()
+    {
+        CanvasUI.SetActive(false);
+    }
+
     public void StartPassengerInteraction()
     {
+        CanvasUI.SetActive(true);
         NextPassengerInteraction();
     }
 
@@ -128,5 +134,4 @@ public class PassengerInteractionManager : MonoBehaviour
         OverpricedTicketBtn.onClick.RemoveAllListeners();
         KickOutBtn.onClick.RemoveAllListeners();
     }
-
 }

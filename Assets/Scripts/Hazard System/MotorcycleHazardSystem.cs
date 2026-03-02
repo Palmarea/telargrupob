@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MotorcycleHazardSystem : MonoBehaviour
+public class MotorcycleHazardSystem : DayDependant
 {
     [Header("Dependencies")]
     [SerializeField] private WindowController windowController;
@@ -16,12 +16,19 @@ public class MotorcycleHazardSystem : MonoBehaviour
     private bool hazardActive = false;
     private bool waitingForNextHazard = true;
 
-    private void Start()
+    private void Awake()
     {
+        RegisterForDay();
+        RegisterForBusStopPause();
+    }
+
+    public override void StartSystem()
+    {
+        base.StartSystem();
         ScheduleNextHazard();
     }
 
-    private void Update()
+    protected override void OnSystemUpdate()
     {
         if (TimeManager.Instance.TimeStop) return;
 

@@ -3,13 +3,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BusStopManager : MonoBehaviour
+public class BusStopManager : DayDependant
 {
     [Header("Dependencies")]
     [SerializeField] private PassengerSystem PassengerSystem;
     [SerializeField] private PassengerInteractionManager PassengerInteractionManager;
 
-    [Header("Parameteres")]
+    [Header("Parameters")]
     [SerializeField] private float InBetweenStopsTime = 180f;
 
     [Header("Resources")]
@@ -35,12 +35,22 @@ public class BusStopManager : MonoBehaviour
             PassengerJSONQueue.Enqueue(asset);
         }
 
-        PassengerSystem.SetNewPassengerQueue(PassengerJSONQueue.Dequeue());
-        PassengerInteractionManager.StartPassengerInteraction();
-        ArrivedToStop();
+        RegisterForDay();
     }
 
-    private void Update()
+    public override void StartSystem()
+    {
+        base.StartSystem();
+        PassengerSystem.SetNewPassengerQueue(PassengerJSONQueue.Dequeue());
+        PassengerInteractionManager.StartPassengerInteraction();
+
+        ArrivedToStop();
+
+        // Detener bus
+        DayManager.Instance.StartBusStop();
+    }
+
+    protected override void OnSystemUpdate()
     {
         if (TimeManager.Instance.TimeStop) return;
         
@@ -85,7 +95,8 @@ public class BusStopManager : MonoBehaviour
                 Debug.Log("NEW PASSENGERS ADDED");
                 PassengerSystem.SetNewPassengerQueue(PassengerJSONQueue.Dequeue());
                 ArrivedToStop();
-                
+                DayManager.Instance.StartBusStop();
+
                 if (!PassengerInteractionManager.GetInteractionState())
                 {
                     PassengerInteractionManager.StartPassengerInteraction();
@@ -98,7 +109,7 @@ public class BusStopManager : MonoBehaviour
         }
     }
 
-    // DEBUG
+    #region DEBUG
     private void RefillJSONQueue()
     {
         foreach (TextAsset asset in PassengerJSONList)
@@ -138,4 +149,5 @@ public class BusStopManager : MonoBehaviour
             1f
         );
     }
+    #endregion
 }

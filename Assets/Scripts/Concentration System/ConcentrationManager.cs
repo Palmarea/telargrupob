@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ConcentrationManager : MonoBehaviour
+public class ConcentrationManager : DayDependant
 {
     public static ConcentrationManager Instance;
     
@@ -26,11 +26,13 @@ public class ConcentrationManager : MonoBehaviour
         else
         {
             Instance = this;
+            RegisterForDay();
+            RegisterForBusStopPause();
         }
     }
     #endregion
 
-    private void Update()
+    protected override void OnSystemUpdate()
     {
         if (TimeManager.Instance.TimeStop) return;
 
